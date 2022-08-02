@@ -21,4 +21,4 @@ jobs:
       - name: Azure Login
         uses: azure/login@v1
         with:
-          creds: 0Y68Q~cThT6KpRZzWqWy5ghtYgpiDKHMv~626csy
+          creds: ${{ secrets.AZURE_AUTH }}
