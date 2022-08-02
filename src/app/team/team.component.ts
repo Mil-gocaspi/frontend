@@ -16,8 +16,13 @@ public employees : IUser
 
   ngOnInit(): void {
     this._userService.getEmployee()
-      .then(data => {
-        console.log(data)
+      .then((data ) => {
+
+this.employees = <IUser>data
+        console.log(this.employees)
+        this.employees.email="changedEmail@mail.de"
+        console.log(this.employees)
+
       })
       .catch(err => {
         console.log(err)

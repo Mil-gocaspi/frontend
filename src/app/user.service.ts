@@ -12,7 +12,7 @@ export class UserService {
   constructor(private http : HttpClient) { }
   getEmployee(){
     return new Promise((resolve, reject) => {
-      axios.get("http://localhost:9090/employee/99/get")
+      axios.get<IUser>("http://localhost:9090/employee/1/get")
         .then(response => {
           resolve(response.data)
         })
