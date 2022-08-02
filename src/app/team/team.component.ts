@@ -8,28 +8,28 @@ import {IUser} from "../user";
   styleUrls: ['./team.component.scss']
 })
 export class TeamComponent implements OnInit {
-public employees : IUser
+public employee : IUser
   constructor(private _userService: UserService) {
-  this.employees = {first_name:"",last_name:"",id:"",email:""}
-
+    this.employee = this._userService._testUser
   }
 
   ngOnInit(): void {
-    this._userService.getEmployee()
-      .then((data ) => {
-
-this.employees = <IUser>data
-        console.log(this.employees)
-        this.employees.email="changedEmail@mail.de"
-        console.log(this.employees)
-
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    console.log(this.employees,"employees")
+    this.getUser("1")
+ //    this.createFake(this.employee)
   }
 
+createFake= async (user : IUser) => {
+await  this._userService.createUser(user)
+    .then(data =>console.log(data))
+    .catch(err => console.log(err))
+}
+
+getUser = async (id :string)=>{
+  await   this._userService.getUser(id)
+    .then((data ) => this.employee = <IUser>data)
+    .catch(err => console.log(err))
+  console.log(this.employee)
+}
 
 
 }
