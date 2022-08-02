@@ -10,6 +10,6 @@ export class UserService {
 
   constructor(private http : HttpClient) { }
   getEmployee():Observable<IUser>{
-    return this.http.get<IUser>("https://cors-anywhere.herokuapp.com/http://localhost:9090/employee/1/get")
+    return this.http.get<IUser>("http://localhost:9090/employee/1/get")
   }
 }
