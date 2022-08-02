@@ -15,7 +15,13 @@ public employees : IUser
   }
 
   ngOnInit(): void {
-    this._userService.getEmployee().subscribe(data =>  this.employees = data);
+    this._userService.getEmployee()
+      .then(data => {
+        console.log(data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
     console.log(this.employees,"employees")
   }
 
