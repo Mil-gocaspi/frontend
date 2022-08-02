@@ -1,0 +1,12 @@
+.wrap{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  max-width: 10vw;
+  min-height: 50vh;
+
+}
+
+.active{
+color: aqua;
+}
