@@ -1,0 +1,24 @@
+name: Build and Create Artifact
+
+on: [push]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npx ng build
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-without-markdown
+          path: |
+            dist/frontend
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: 0Y68Q~cThT6KpRZzWqWy5ghtYgpiDKHMv~626csy
