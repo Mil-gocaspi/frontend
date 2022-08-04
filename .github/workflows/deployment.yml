@@ -88,11 +88,13 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_AUTH }}
-      - name: Azure CLI script
-        uses: azure/CLI@v1
+      - name: 'Deploy to Azure Container Instances'
+        uses: 'azure/aci-deploy@v1'
         with:
-          azcliversion: 2.30.0
-          inlineScript: |
-            az acr login --name ${{ env.REGISTRY }} --username zeitodoreg --password ${{ secrets.DOCKER_TOKEN }}
-            az container create -g ${{ env.AZURERG }} --name ${{ env.CONTAINER_NAME }} --image ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} --ports 80 --ip-address public
+          resource-group: ${{ env.AZURERG }}
+          image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          registry-login-server: ${{ env.REGISTRY }}
+          registry-username: ${{ env.DOCKER_USER }}
+          registry-password: ${{ secrets.DOCKER_TOKEN }}
+          name: ${{ env.CONTAINER_NAME }}
 
