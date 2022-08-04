@@ -8,6 +8,6 @@ RUN npx ng build
 # production stage
 FROM nginx:stable-alpine as production-stage
 COPY --from=build-stage /app/dist/frontend /var/www/zeitodofrontend.northeurope.azurecontainer.io
-COPY nginxconfig /etc/nginx/sites-enabled/default
+COPY nginxconfig /etc/nginx/conf.d/zeitodofrontend.northeurope.azurecontainer.io.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
