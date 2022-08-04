@@ -92,6 +92,7 @@ jobs:
         uses: 'azure/aci-deploy@v1'
         with:
           resource-group: ${{ env.AZURERG }}
+          dns-name-label: ${{ env.AZURERG }}${{ github.run_number }}
           image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           registry-login-server: ${{ env.REGISTRY }}
           registry-username: ${{ env.DOCKER_USER }}
