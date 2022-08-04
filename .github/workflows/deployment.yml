@@ -93,6 +93,6 @@ jobs:
         with:
           azcliversion: 2.30.0
           inlineScript: |
-            az acr login  --username zeitodoreg --password ${{ secrets.DOCKER_TOKEN }}
-            az container create -g on4t --name ${{ env.CONTAINER_NAME }} --image ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} --ports 80 --ip-address public
+            az acr login --name ${{ env.REGISTRY }} --username zeitodoreg --password ${{ secrets.DOCKER_TOKEN }}
+            az container create -g on4t --name ${{ env.REGISTRY }} --image ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} --ports 80 --ip-address public
 
