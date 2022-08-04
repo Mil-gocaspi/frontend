@@ -1,7 +1,8 @@
-server{
-    listen 0.0.0.0:80;
-    root /var/www/zeitodofrontend.northeurope.azurecontainer.io;
-    location / {
-        try_files $uri$args $uri$args/ /index.html;
-    }
+server {
+ listen 80;
+ server_name zeitodofrontend;
+ location / {
+   root /usr/share/nginx/html;
+   try_files $uri $uri/ /index.html;
+ }
 }
