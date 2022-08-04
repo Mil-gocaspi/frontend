@@ -93,7 +93,7 @@ jobs:
         with:
           resource-group: ${{ env.AZURERG }}
           dns-name-label: ${{ env.AZURERG }}${{ github.run_number }}
-          image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
           registry-login-server: ${{ env.REGISTRY }}
           registry-username: ${{ env.DOCKER_USER }}
           registry-password: ${{ secrets.DOCKER_TOKEN }}
