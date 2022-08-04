@@ -1,8 +1,7 @@
 server{
     listen 80;
     listen [::] 80;
-    server_name zeitodofrontend.northeurope.azurecontainer.io;
-    root /var/www/frontend;
+    root /usr/share/nginx/html;
     index index.html;
     location / {
         try_files $uri$args $uri$args/ /index.html;
