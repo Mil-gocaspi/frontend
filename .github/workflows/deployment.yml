@@ -98,4 +98,5 @@ jobs:
           registry-username: ${{ env.DOCKER_USER }}
           registry-password: ${{ secrets.DOCKER_TOKEN }}
           name: ${{ env.CONTAINER_NAME }}
+          location: 'eu west'
 
