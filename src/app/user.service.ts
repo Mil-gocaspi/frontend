@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {IUser} from "./user";
 import axios from "axios"
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 
 @Injectable({
@@ -32,4 +33,6 @@ public _testUser : IUser = <IUser>{first_name:"Tes",last_name:"Ter",id:"2357",em
         .catch(error => reject(error))
     })
   }
+
+
 }
