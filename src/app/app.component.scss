@@ -15,8 +15,8 @@ color: aqua;
  */
 
 .example-container {
-  width: 500px;
-  height: 300px;
+  width: 100vw;
+  height: 100vh;
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
@@ -30,4 +30,9 @@ color: aqua;
 .example-sidenav {
   padding: 20px;
 }
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
 
