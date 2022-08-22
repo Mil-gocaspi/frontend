@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from "axios";
+import {UserService} from "../user.service";
 
 @Component({
   selector: 'app-dialog-login',
@@ -12,7 +13,7 @@ import axios from "axios";
 export class DialogLoginComponent implements OnInit {
 public username : string
   public password: string
-  constructor() {
+  constructor(private _userService: UserService) {
      this.username = ""
     this.password = ""
   }
@@ -21,17 +22,9 @@ public username : string
   }
 submit(){
 console.log("username:",this.username,"password:",this.password)
-  this.getLoggedinUser()
  // this.getSomeUser()
+  this._userService.getLoggedinUser(this.username,this.password)
 }
-
-getLoggedinUser(){
- let UserPayload = {username: this.username, password: this.password}
-  axios.post("http://localhost:9090/login",JSON.stringify(UserPayload))
-    .then(response => console.log(response.data))
-    .catch(error => console.log(error))
-}
-
 
 getSomeUser(){
   axios.get("http://localhost:9090/62ff87026b75ab5717808dee")
