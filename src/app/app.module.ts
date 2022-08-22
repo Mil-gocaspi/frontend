@@ -16,6 +16,7 @@ import { DialogLoginComponent } from './dialog-login/dialog-login.component';
 import {MatDialogModule } from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -39,6 +40,7 @@ import { MatInputModule } from '@angular/material/input';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    FormsModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
