@@ -37,7 +37,7 @@ public _testUser : IUser = <IUser>{first_name:"Tes",last_name:"Ter",id:"2357",em
     let UserPayload = {username: username, password: password}
     axios.post("http://localhost:9090/login",JSON.stringify(UserPayload))
       .then(response => console.log(response.data))
-      .catch(error => console.log(error))
+      .catch(error => console.log(error.response.data))
   }
 
 
