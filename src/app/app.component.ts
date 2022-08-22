@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {DialogLoginComponent} from "./dialog-login/dialog-login.component";
 
 @Component({
   selector: 'app-root',
@@ -8,4 +10,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'frontend';
   showFiller = false;
+
+  constructor(public dialog: MatDialog) {
+  }
+
+  openLogin(){
+    this.dialog.open(DialogLoginComponent)
+  }
 }

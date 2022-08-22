@@ -12,12 +12,40 @@
 
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side" >
-    <p>Auto-resizing sidenav</p>
+
+
+   <!-- here starts the list in the sidenav -->
+
+    <mat-list>
+      <div mat-subheader>Overview</div>
+      <mat-list-item >
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <div mat-line>Dashboard</div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/entry" routerLinkActive="active" class="sidenav-item">
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <div mat-line>Zeiteintrag</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <div mat-subheader>Berichte</div>
+      <mat-list-item >
+        <mat-icon mat-list-icon>note</mat-icon>
+        <div mat-line>Planer</div>
+      </mat-list-item>
+    </mat-list>
+
+<!-- here ends sidenav l ist -->
+
+
+    <!-- here
+
     <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
     <button (click)="showFiller = !showFiller" mat-raised-button color="warn">
       Toggle extra text
     </button>
-
+-->
   </mat-drawer>
 
 
@@ -27,38 +55,44 @@
     </button>
     <span>ZeiToDo</span>
     <span class="example-spacer"></span>
+      <!--
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>favorite</mat-icon>
     </button>
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
       <mat-icon>share</mat-icon>
     </button>
-
+-->
 
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>dialpad</mat-icon>
-          <span>Redial</span>
-        </button>
+
         <button mat-menu-item disabled>
-          <mat-icon>voicemail</mat-icon>
-          <span>Check voice mail</span>
+          <mat-icon>build</mat-icon>
+          <span>Settings</span>
         </button>
-        <button mat-menu-item>
-          <mat-icon>notifications_off</mat-icon>
-          <span>Disable alerts</span>
+        <button mat-menu-item (click)="openLogin()">
+          <mat-icon>lock_open</mat-icon>
+          <span>Login</span>
         </button>
       </mat-menu>
 
     </mat-toolbar>
 
+
+  <!--
   <div class="example-sidenav-content">
     <button type="button" mat-raised-button (click)="drawer.toggle()" color="primary">
       Toggle sidenav
     </button>
   </div>
+  -->
+
+  <router-outlet></router-outlet>
 
 </mat-drawer-container>
+
+
+
